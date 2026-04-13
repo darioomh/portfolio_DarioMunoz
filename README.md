@@ -1,37 +1,35 @@
 <!-- README.md -->
 <div align="center">
-
   <h1>portfolio_DarioMunoz</h1>
-  
-  <p>Repositorio oficial del portfolio personal de Darío Muñoz</p>
+  <p><em>Código fuente de mi portfolio personal</em></p>
+</div>
 
-  <br/>
+<br>
 
-  <a href="https://github.com/darioomh/portfolio_DarioMunoz" target="_blank">
-    <strong>🔗 Ver repositorio</strong>
+Hola 👋, soy **Darío Muñoz**.
+
+Este repositorio alberga el código de mi sitio personal, donde comparto proyectos, experimentos y cosas en las que estoy trabajando, principalmente enfocadas en desarrollo de software e inteligencia artificial.
+
+<br>
+
+<div align="center">
+  <a href="https://github.com/darioomh/portfolio_DarioMunoz">
+    <strong>Ver este repositorio →</strong>
   </a>
-
 </div>
 
-<br/>
+<br>
 
-## 📁 Sobre este repositorio
+### 📬 Contacto
 
-Este proyecto contiene el código fuente del portfolio personal de **Darío Muñoz**, desarrollador de software especializado en inteligencia artificial.
+Si quieres charlar sobre código, colaboración o cualquier otra cosa:
 
-## 🛠️ Tecnologías
+<p align="center">
+  <a href="mailto:dariomunozherrero@gmail.com">dariomunozherrero@gmail.com</a>
+</p>
 
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,javascript,python,git" height="40" alt="Stack" />
-</div>
-
-## 🔗 Enlaces
-
-- [📬 Contacto](mailto:dariomunozherrero@gmail.com)
-- [💻 GitHub](https://github.com/darioomh)
-
----
+<br>
 
 <div align="center">
-  <sub>© 2026 Darío Muñoz</sub>
+  <sub>Hecho con código y café • © 2026</sub>
 </div>
