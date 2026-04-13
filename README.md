@@ -1,6 +1,6 @@
 <!-- README.md -->
 <div align="center">
-  <h1>portfolio_DarioMunoz</h1>
+  <h1>✨ portfolio_DarioMunoz</h1>
   <p><em>Código fuente de mi portfolio personal</em></p>
 </div>
 
@@ -14,22 +14,22 @@ Este repositorio alberga el código de mi sitio personal, donde comparto proyect
 
 <div align="center">
   <a href="https://github.com/darioomh/portfolio_DarioMunoz">
-    <strong>Ver este repositorio →</strong>
+    🔗 <strong>Ver este repositorio</strong>
   </a>
 </div>
 
 <br>
 
-### 📬 Contacto
+### 📬 ¿Hablamos?
 
-Si quieres charlar sobre código, colaboración o cualquier otra cosa:
+Si quieres charlar sobre código, colaboración o cualquier otra cosa, escríbeme:
 
 <p align="center">
-  <a href="mailto:dariomunozherrero@gmail.com">dariomunozherrero@gmail.com</a>
+  ✉️ <a href="mailto:dariomunozherrero@gmail.com">dariomunozherrero@gmail.com</a>
 </p>
 
 <br>
 
 <div align="center">
-  <sub>Hecho con código y café • © 2026</sub>
+  <sub>👨‍💻 Hecho con código y café • © 2026</sub>
 </div>
