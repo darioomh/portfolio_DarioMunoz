@@ -1,129 +1,110 @@
 import { motion } from "motion/react";
 import { PROFILE } from "@/src/constants";
-import { Terminal, Code2, Cpu, History, ChevronRight, Binary } from "lucide-react";
+import { Code2, Brain, Rocket, Target, GitBranch, Terminal } from "lucide-react";
 
 export function About() {
-  return (
-    <section className="py-32 px-12 bg-surface-low relative overflow-hidden" id="story">
-      {/* Background Grid Accent */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-           style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+  const stats = [
+    { label: "Proyectos", value: "5+", icon: Code2, color: "text-accent" },
+    { label: "Tecnologías", value: "10+", icon: Brain, color: "text-secondary" },
+    { label: "Experiencia", value: "1 año", icon: Rocket, color: "text-warning" },
+    { label: "Enfoque", value: "IA/ML", icon: Target, color: "text-accent" },
+  ];
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          
-          {/* Left: Interactive Code Editor View */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+  return (
+    <section className="py-20 px-6 md:px-12 bg-surface-low" id="story">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center gap-2 mb-4 font-mono text-sm text-on-surface-muted">
+            <Terminal className="w-4 h-4" />
+            <span>/sobre-mi</span>
+          </div>
+          <h2 className="font-mono text-3xl font-bold text-on-surface mb-2">
+            Sobre <span className="text-accent">Mí</span>
+          </h2>
+          <p className="text-on-surface-variant">
+            Desarrollador especializado en Inteligencia Artificial
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left: Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="space-y-6"
           >
-            {/* Decorative Glow */}
-            <div className="absolute -inset-10 bg-neon-blue/10 blur-[100px] rounded-full opacity-50" />
-            
-            <div className="relative bg-[#0d0d0d] rounded-2xl border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]">
-              {/* Editor Header */}
-              <div className="flex items-center justify-between px-6 py-4 bg-white/5 border-b border-white/10">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-[0_0_10px_rgba(255,95,86,0.3)]" />
-                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_10px_rgba(255,189,46,0.3)]" />
-                  <div className="w-3 h-3 rounded-full bg-[#27c93f] shadow-[0_0_10px_rgba(39,201,63,0.3)]" />
-                </div>
-                <div className="flex items-center gap-3 text-[10px] font-mono text-white/30 tracking-widest uppercase">
-                  <Binary className="w-3 h-3 text-neon-blue" />
-                  <span>src/profile/dario.ts</span>
-                </div>
+            <div className="terminal p-6 space-y-4">
+              <div className="flex items-center gap-2 text-on-surface-muted border-b border-white/10 pb-3">
+                <GitBranch className="w-4 h-4 text-secondary" />
+                <span className="text-xs">main — perfil.md</span>
               </div>
-
-              {/* Editor Content */}
-              <div className="p-10 font-mono text-sm leading-relaxed">
-                <div className="flex gap-4 mb-6">
-                  <span className="text-neon-purple italic">from</span>
-                  <span className="text-neon-blue">dario_core</span>
-                  <span className="text-neon-purple italic">import</span>
-                  <span className="text-neon-blue">SoftwareEngineer, AISpecialist</span>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex gap-4">
-                    <span className="text-neon-purple italic">class</span>
-                    <span className="text-neon-green">DarioMunoz</span>
-                    <span className="text-white/60">(SoftwareEngineer, AISpecialist):</span>
-                  </div>
-                  
-                  <div className="pl-8 flex gap-4">
-                    <span className="text-neon-blue">role</span>
-                    <span className="text-white/60">=</span>
-                    <span className="text-[#ce9178]">"Software & IA"</span>
-                  </div>
-
-                  <div className="pl-8 flex gap-4">
-                    <span className="text-neon-blue">stack</span>
-                    <span className="text-white/60">=</span>
-                    <span className="text-white/60">[</span>
-                    <span className="text-[#ce9178]">"Python"</span>
-                    <span className="text-white/60">,</span>
-                    <span className="text-[#ce9178]">"FastAPI"</span>
-                    <span className="text-white/60">,</span>
-                    <span className="text-[#ce9178]">"Kotlin"</span>
-                    <span className="text-white/60">]</span>
-                  </div>
-
-                  <div className="pl-8 flex gap-4">
-                    <span className="text-neon-purple italic">def</span>
-                    <span className="text-neon-green">get_vision</span>
-                    <span className="text-white/60">(self):</span>
-                  </div>
-                  <div className="pl-16 flex gap-4">
-                    <span className="text-neon-purple italic">return</span>
-                    <span className="text-[#ce9178]">"Building intelligent systems"</span>
-                  </div>
-                  
-                  <div className="text-white/60"># System initialized</div>
-                </div>
-
-                {/* Interactive Terminal Prompt */}
-                <div className="mt-12 pt-8 border-t border-white/5">
-                  <div className="flex items-center gap-3 text-neon-green mb-3">
-                    <ChevronRight className="w-4 h-4" />
-                    <span className="text-[10px] font-bold tracking-widest">SYSTEM_READY</span>
-                    <span className="w-2 h-4 bg-neon-green animate-pulse" />
-                  </div>
-                  <div className="text-[10px] text-white/20 font-mono italic">
-                    {">"} Initializing dario_profile.py...<br/>
-                    {">"} Status: Ready to build.
-                  </div>
-                </div>
+              
+              <div className="space-y-3 text-sm">
+                <p className="text-on-surface leading-relaxed">
+                  <span className="text-accent">#</span> Desarrollador de aplicaciones multiplataforma 
+                  con experiencia en desarrollo backend, frontend y análisis de datos.
+                </p>
+                <p className="text-on-surface-variant leading-relaxed">
+                  Especializado en Java y tecnologías del ecosistema Android y .NET. 
+                  Actualmente cursando un Máster en Inteligencia Artificial y Deep Learning, 
+                  donde aplico técnicas de Machine Learning y procesamiento de datos para 
+                  construir soluciones reales.
+                </p>
               </div>
+            </div>
+
+            {/* Highlight box */}
+            <div className="p-4 bg-surface border border-white/10 rounded-lg">
+              <p className="font-mono text-sm text-on-surface-variant">
+                <span className="text-secondary">❯</span> Buscando oportunidades 
+                para aplicar mis habilidades en proyectos innovadores de IA y 
+                desarrollo de software.
+              </p>
             </div>
           </motion.div>
 
-          {/* Right: Narrative Content */}
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="font-display text-6xl md:text-7xl font-bold tracking-tighter leading-[0.9]"
-              >
-                Desarrollador <br/>
-                <span className="text-neon-blue">Software & IA</span>
-              </motion.h2>
-            </div>
-
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="relative pl-10 border-l-2 border-neon-blue/20"
-            >
-              <p className="text-on-surface-variant text-xl md:text-2xl leading-relaxed font-light italic">
-                Especializado en la creación de soluciones robustas que integran el desarrollo de aplicaciones modernas con el poder de la Inteligencia Artificial. Mi enfoque combina la precisión de la ingeniería de software con la adaptabilidad del aprendizaje automático.
-              </p>
-              <div className="absolute -left-[9px] top-0 w-4 h-4 bg-background border-2 border-neon-blue rounded-full" />
-            </motion.div>
-          </div>
-
+          {/* Right: Stats Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 gap-4"
+          >
+            {stats.map((stat, i) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-surface border border-white/10 rounded-lg p-5 hover:border-accent/50 transition-all"
+                >
+                  <div className="space-y-3">
+                    <div className={`w-10 h-10 rounded-md bg-accent-dim/50 flex items-center justify-center`}>
+                      <Icon className={`w-5 h-5 ${stat.color}`} />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold font-mono text-on-surface">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-on-surface-muted">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
     </section>

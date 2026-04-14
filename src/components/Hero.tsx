@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
-import { ArrowRight, ChevronDown, Terminal } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { ChevronDown, Terminal, GitBranch, Code2, Cpu } from "lucide-react";
 
 function Typewriter({ texts, delay = 0 }: { texts: string[]; delay?: number }) {
   const [index, setIndex] = useState(0);
@@ -35,155 +35,215 @@ function Typewriter({ texts, delay = 0 }: { texts: string[]; delay?: number }) {
   }, [subIndex, index, reverse, texts, isStarted]);
 
   return (
-    <span className="font-mono text-neon-blue">
+    <span className="text-secondary">
       {texts[index].substring(0, subIndex)}
-      <span className="animate-pulse">|</span>
+      <span className="animate-blink text-accent">█</span>
     </span>
   );
 }
 
-function Particles() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-white/10 rounded-full"
-          initial={{ 
-            x: Math.random() * 100 + "%", 
-            y: Math.random() * 100 + "%",
-            scale: Math.random() * 0.5 + 0.5
-          }}
-          animate={{ 
-            y: [null, "-100%"],
-            opacity: [0, 1, 0]
-          }}
-          transition={{ 
-            duration: Math.random() * 20 + 20, 
-            repeat: Infinity, 
-            ease: "linear",
-            delay: Math.random() * 20
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export function Hero() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  const springConfig = { damping: 25, stiffness: 150 };
-  const dx = useSpring(useTransform(mouseX, [0, 1920], [-20, 20]), springConfig);
-  const dy = useSpring(useTransform(mouseY, [0, 1080], [-20, 20]), springConfig);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    mouseX.set(e.clientX);
-    mouseY.set(e.clientY);
-  };
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const titles = [
-    "Desarrollador de Software especializado en Inteligencia Artificial",
-    "Especialista en Deep Learning & Machine Learning",
-    "Arquitecto de Soluciones Escalables & Datos"
+    "Desarrollo sistemas inteligentes con IA y Machine Learning",
+    "Construyo APIs escalables con Python y FastAPI",
+    "Aplico Deep Learning para resolver problemas reales"
   ];
 
   return (
-    <section 
-      className="relative h-screen flex flex-col justify-center px-12 bg-[#050505] overflow-hidden select-none" 
-      id="hero"
-      onMouseMove={handleMouseMove}
-    >
-      {/* Grain Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <Particles />
-        <motion.div 
-          style={{ x: dx, y: dy }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none"
+    <section className="relative min-h-screen bg-background overflow-hidden" id="hero">
+      {/* Background grid */}
+      <div className="absolute inset-0 opacity-[0.03]" 
+           style={{ 
+             backgroundImage: 'linear-gradient(#58a6ff 1px, transparent 1px), linear-gradient(90deg, #58a6ff 1px, transparent 1px)', 
+             backgroundSize: '40px 40px' 
+           }} />
+
+      {/* Main content */}
+      <div className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto py-20">
+        
+        {/* Terminal window */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="terminal w-full"
         >
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-neon-blue/5 rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-purple/5 rounded-full blur-[120px]" />
+          {/* Terminal header */}
+          <div className="flex items-center justify-between px-4 py-3 bg-surface border-b border-white/10">
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+              <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+              <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+            </div>
+            <div className="font-mono text-xs text-on-surface-muted">
+              dario@portfolio ~ /inicio
+            </div>
+            <div className="font-mono text-xs text-on-surface-muted">
+              {currentTime.toLocaleTimeString('es-ES')}
+            </div>
+          </div>
+
+          {/* Terminal body */}
+          <div className="p-6 md:p-8 space-y-4 font-mono text-sm">
+            {/* Git branch info */}
+            <div className="flex items-center gap-2 text-on-surface-muted">
+              <GitBranch className="w-4 h-4 text-secondary" />
+              <span>main</span>
+              <span className="text-on-surface-muted">●</span>
+              <span>protected</span>
+            </div>
+
+            {/* Welcome comment */}
+            <div className="text-on-surface-muted">
+              <span className="text-accent">#</span> Bienvenido a mi portfolio de desarrollador
+            </div>
+
+            {/* Main intro */}
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <span className="text-secondary shrink-0">❯</span>
+                <span className="text-on-surface">
+                  <span className="text-accent">const</span>
+                  <span className="text-warning"> desarrollador</span>
+                  <span className="text-on-surface"> = </span>
+                  <span className="text-accent">nuevo</span>
+                  <span className="text-secondary"> Developer</span>
+                  <span className="text-on-surface">();</span>
+                </span>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <span className="text-on-surface-muted">│</span>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <span className="text-on-surface-muted">│</span>
+                <span className="text-on-surface">
+                  <span className="text-accent">desarrollador</span>
+                  <span className="text-on-surface">.</span>
+                  <span className="text-warning">nombre</span>
+                  <span className="text-on-surface"> = </span>
+                  <span className="text-secondary">"Darío Muñoz"</span>
+                  <span className="text-on-surface">;</span>
+                </span>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <span className="text-on-surface-muted">│</span>
+                <span className="text-on-surface">
+                  <span className="text-accent">desarrollador</span>
+                  <span className="text-on-surface">.</span>
+                  <span className="text-warning">especialidad</span>
+                  <span className="text-on-surface"> = </span>
+                  <span className="text-secondary">"Inteligencia Artificial"</span>
+                  <span className="text-on-surface">;</span>
+                </span>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <span className="text-on-surface-muted">│</span>
+                <span className="text-on-surface">
+                  <span className="text-accent">desarrollador</span>
+                  <span className="text-on-surface">.</span>
+                  <span className="text-warning">stack</span>
+                  <span className="text-on-surface"> = [</span>
+                  <span className="text-secondary">"Python"</span>
+                  <span className="text-on-surface">,</span>
+                  <span className="text-secondary">"Java"</span>
+                  <span className="text-on-surface">,</span>
+                  <span className="text-secondary">"Kotlin"</span>
+                  <span className="text-on-surface">];</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Typewriter role */}
+            <div className="flex items-start gap-2 pt-4">
+              <span className="text-secondary shrink-0">❯</span>
+              <span className="flex-1">
+                <span className="text-accent">desarrollador</span>
+                <span className="text-on-surface">.</span>
+                <span className="text-warning">quéHago</span>
+                <span className="text-on-surface">() → </span>
+                <Typewriter texts={titles} delay={1500} />
+              </span>
+            </div>
+
+            {/* System ready */}
+            <div className="flex items-center gap-2 pt-4 text-secondary">
+              <span>✓</span>
+              <span>Sistema inicializado correctamente</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Quick stats below terminal */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
+        >
+          {[
+            { icon: Code2, label: "Proyectos", value: "5+", color: "text-accent" },
+            { icon: Cpu, label: "Tecnologías", value: "10+", color: "text-secondary" },
+            { icon: GitBranch, label: "Commits", value: "500+", color: "text-warning" },
+            { icon: Terminal, label: "Enfoque", value: "IA/ML", color: "text-accent" },
+          ].map((stat, i) => {
+            const Icon = stat.icon;
+            return (
+              <div key={i} className="terminal p-4 text-center">
+                <Icon className={`w-5 h-5 mx-auto mb-2 ${stat.color}`} />
+                <div className="text-2xl font-bold font-display text-on-surface">{stat.value}</div>
+                <div className="text-xs text-on-surface-muted">{stat.label}</div>
+              </div>
+            );
+          })}
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="flex flex-wrap gap-4 mt-8"
+        >
+          <a
+            href="#work"
+            className="px-6 py-3 bg-accent text-white font-mono font-semibold rounded-lg hover:bg-accent-dark transition-all flex items-center gap-2"
+          >
+            <Code2 className="w-4 h-4" />
+            Ver proyectos
+          </a>
+          <a
+            href="#contact"
+            className="px-6 py-3 border border-white/20 font-mono font-semibold rounded-lg hover:border-accent hover:text-accent transition-all"
+          >
+            Contactar
+          </a>
         </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="space-y-12">
-          
-          {/* Main Name & Title */}
-          <div className="space-y-4">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="font-display text-8xl md:text-[11rem] font-bold tracking-tighter leading-none text-white"
-            >
-              Dario Muñoz
-            </motion.h1>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-2xl md:text-4xl font-sans font-light tracking-tight text-white/80"
-            >
-              <Typewriter texts={titles} delay={1200} />
-            </motion.div>
-          </div>
-
-          {/* Description */}
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
-            className="font-sans text-lg md:text-xl text-white/40 max-w-2xl leading-relaxed font-light"
-          >
-            Desarrollando aplicaciones inteligentes, sistemas escalables y soluciones basadas en datos combinando ingeniería de software y machine learning.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.8 }}
-            className="flex flex-wrap gap-8 pt-8"
-          >
-            <a 
-              href="#work"
-              className="group relative px-10 py-4 bg-white text-black font-display font-bold text-lg tracking-tight overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,242,255,0.4)]"
-            >
-              <div className="absolute inset-0 bg-neon-blue translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-              <span className="relative z-10 group-hover:text-white transition-colors duration-300">Ver proyectos</span>
-              <div className="absolute -inset-1 bg-neon-blue/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-            <a 
-              href="#contact"
-              className="group relative px-10 py-4 border border-white/10 overflow-hidden font-display font-bold text-lg text-white/60 hover:text-white transition-all hover:border-neon-blue/50"
-            >
-              <div className="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-              <span className="relative z-10">Contactar</span>
-              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-neon-blue group-hover:w-full transition-all duration-500" />
-            </a>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div 
+      {/* Scroll indicator */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+        transition={{ delay: 2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-mono text-[8px] text-white/20 tracking-[0.5em] uppercase vertical-text">Scroll</span>
+        <span className="font-mono text-[10px] text-on-surface-muted tracking-wider">SCROLL</span>
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown className="w-4 h-4 text-white/20" />
+          <ChevronDown className="w-5 h-5 text-accent" />
         </motion.div>
       </motion.div>
     </section>

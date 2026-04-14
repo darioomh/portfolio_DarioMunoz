@@ -21,16 +21,16 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-background text-on-surface selection:bg-neon-blue/30 selection:text-neon-blue overflow-x-hidden">
+    <div className="min-h-screen bg-background text-on-surface overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-neon-blue z-[100] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-accent z-[100] origin-left"
         style={{ scaleX }}
       />
 
       <Navbar />
       <Sidebar />
-      
+
       <main className="md:ml-20">
         <Hero />
         <About />

@@ -1,87 +1,134 @@
 import { motion } from "motion/react";
-import { Cpu, Code } from "lucide-react";
+import { Cpu, Code, Award, Calendar, Briefcase } from "lucide-react";
 import { PROFILE } from "@/src/constants";
 
 export function Experience() {
   return (
-    <section className="py-32 px-12" id="exp">
-      <div className="max-w-4xl mx-auto">
-        <motion.h2 
+    <section className="py-20 px-6 md:px-12 bg-surface-low" id="exp">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-5xl font-bold mb-20 text-center"
+          className="mb-12"
         >
-          Trayectoria <span className="text-neon-blue">Profesional</span>
-        </motion.h2>
+          <div className="flex items-center gap-2 mb-4 font-mono text-sm text-on-surface-muted">
+            <Briefcase className="w-4 h-4" />
+            <span>/trayectoria</span>
+          </div>
+          <h2 className="font-mono text-3xl font-bold text-on-surface mb-2">
+            Trayectoria <span className="text-accent">Profesional</span>
+          </h2>
+          <p className="text-on-surface-variant">
+            Mi experiencia laboral y formación académica
+          </p>
+        </motion.div>
 
-        <div className="space-y-16 relative">
-          <div className="absolute left-[31px] top-4 bottom-4 w-px bg-gradient-to-b from-neon-blue via-white/10 to-transparent" />
-          
-          {/* Educación Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Education */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="pt-12 mb-12"
+            className="space-y-4"
           >
-            <h3 className="text-2xl font-bold font-display mb-8 text-neon-purple flex items-center gap-3">
-              <Code className="w-6 h-6" /> Formación Académica
-            </h3>
-            <div className="space-y-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-md bg-accent-dim/50 flex items-center justify-center">
+                <Code className="w-4 h-4 text-accent" />
+              </div>
+              <h3 className="font-mono text-xl font-semibold text-on-surface">Formación</h3>
+            </div>
+
+            <div className="space-y-3">
               {PROFILE.education.map((edu, i) => (
-                <div key={i} className="relative pl-12 group">
-                  <div className="absolute left-0 top-1 w-4 h-4 rounded-full border-2 border-neon-purple bg-background z-10" />
-                  <div className="bg-surface-low/50 p-6 rounded-xl border border-white/5 group-hover:border-neon-purple/30 transition-all">
-                    <div className="flex flex-col md:flex-row justify-between mb-2">
-                      <h4 className="text-lg font-bold font-display">{edu.degree}</h4>
-                      <span className="font-mono text-xs text-neon-purple">{edu.period}</span>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-surface border border-white/10 rounded-lg p-5 hover:border-accent/50 transition-all"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-start justify-between gap-4">
+                      <h4 className="font-semibold text-on-surface group-hover:text-accent transition-colors">
+                        {edu.degree}
+                      </h4>
+                      <span className="font-mono text-xs text-accent shrink-0 flex items-center gap-1 bg-accent-dim/50 px-2 py-1 rounded">
+                        <Calendar className="w-3 h-3" />
+                        {edu.period}
+                      </span>
                     </div>
-                    <p className="text-on-surface-variant text-sm">{edu.institution}</p>
+                    <p className="text-on-surface-variant text-sm">
+                      {edu.institution}
+                    </p>
                     {edu.description && (
-                      <p className="mt-4 text-on-surface-variant/70 text-xs leading-relaxed border-t border-white/5 pt-4 italic">
+                      <p className="text-on-surface-muted text-xs leading-relaxed pt-2 border-t border-white/10">
                         {edu.description}
                       </p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Experiencia Section */}
-          <h3 className="text-2xl font-bold font-display mb-8 text-neon-blue flex items-center gap-3">
-            <Cpu className="w-6 h-6" /> Experiencia Profesional
-          </h3>
-          
-          {PROFILE.experience.map((exp, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="relative pl-24 group"
-            >
-              <div className="absolute left-0 top-2 w-16 h-16 rounded-lg glass-panel flex items-center justify-center border-neon-blue/50 z-10 group-hover:bg-neon-blue group-hover:text-background transition-all">
-                <Cpu className="w-6 h-6" />
+          {/* Professional Experience */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 rounded-md bg-secondary-dim/50 flex items-center justify-center">
+                <Cpu className="w-4 h-4 text-secondary" />
               </div>
-              <div className="bg-surface-low p-8 rounded-xl border border-white/5 group-hover:border-neon-blue/30 transition-all">
-                <div className="flex flex-col md:flex-row justify-between mb-4">
-                  <h3 className="text-xl font-bold font-display">{exp.role}</h3>
-                  <span className="font-mono text-xs text-neon-blue">{exp.period}</span>
-                </div>
-                <p className="text-neon-green font-bold text-sm mb-4">{exp.company}</p>
-                <ul className="text-on-surface-variant text-sm space-y-3 font-light">
-                  {exp.highlights.map((h, j) => (
-                    <li key={j} className="flex gap-2">
-                      <span className="text-neon-blue">▹</span> {h}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
+              <h3 className="font-mono text-xl font-semibold text-on-surface">Experiencia</h3>
+            </div>
+
+            <div className="space-y-3">
+              {PROFILE.experience.map((exp, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-surface border border-white/10 rounded-lg p-5 hover:border-secondary/50 transition-all border-l-2"
+                  style={{ borderLeftColor: "#3fb950" }}
+                >
+                  <div className="space-y-3">
+                    <div>
+                      <div className="flex items-start justify-between gap-4 mb-2">
+                        <h4 className="font-semibold text-xl text-on-surface">
+                          {exp.role}
+                        </h4>
+                        <span className="font-mono text-xs text-secondary shrink-0 flex items-center gap-1 bg-secondary-dim/50 px-2 py-1 rounded">
+                          <Calendar className="w-3 h-3" />
+                          {exp.period}
+                        </span>
+                      </div>
+                      <p className="text-secondary font-medium text-sm flex items-center gap-2">
+                        <Award className="w-4 h-4" />
+                        {exp.company}
+                      </p>
+                    </div>
+                    
+                    <ul className="space-y-2">
+                      {exp.highlights.map((h, j) => (
+                        <li key={j} className="text-on-surface-variant text-sm flex gap-2">
+                          <span className="text-secondary shrink-0 mt-1">▹</span> 
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

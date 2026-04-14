@@ -80,13 +80,15 @@ export const PROJECTS: { professional: ProjectData[]; vibe: ProjectData[] } = {
       title: "TFG - API Backend",
       repo: "https://github.com/darioomh/tfg-dam-api",
       description: "API backend desarrollada como proyecto final del grado superior, enfocada en arquitectura REST, organización del código y buenas prácticas.",
-      tags: ["PYTHON", "FASTAPI", "SWAGGER", "REST"]
+      tags: ["PYTHON", "FASTAPI", "SWAGGER", "REST"],
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
     },
     {
       title: "TFG - Aplicación Móvil",
       repo: "https://github.com/darioomh/tfg-dam-aplication-mobile",
       description: "Aplicación móvil conectada a la API del proyecto final, desarrollada con tecnologías Android modernas.",
-      tags: ["KOTLIN", "ANDROID", "JETPACK COMPOSE"]
+      tags: ["KOTLIN", "ANDROID", "JETPACK COMPOSE"],
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=450&fit=crop"
     }
   ],
   vibe: [
@@ -94,25 +96,29 @@ export const PROJECTS: { professional: ProjectData[]; vibe: ProjectData[] } = {
       title: "Chatbot BBVA",
       repo: "https://github.com/munozherrerodario-alt/chatbot_BBVA",
       description: "Asistente inteligente desarrollado para BBVA enfocado en la automatización de consultas financieras y atención al cliente.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"]
+      tags: ["TYPESCRIPT", "HTML", "CSS"],
+      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&h=450&fit=crop"
     },
     {
       title: "IKEA Assistant",
       repo: "https://github.com/munozherrerodario-alt/ikea-assistant",
       description: "Asistente virtual para IKEA que facilita la búsqueda de productos y soporte en la experiencia de compra.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"]
+      tags: ["TYPESCRIPT", "HTML", "CSS"],
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop"
     },
     {
       title: "Chatbot Telefónica",
       repo: "https://github.com/munozherrerodario-alt/chatbot_Telefonica",
       description: "Solución de chatbot para Telefónica diseñada para optimizar la gestión de servicios y soporte técnico.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"]
+      tags: ["TYPESCRIPT", "HTML", "CSS"],
+      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop"
     },
     {
       title: "Chatbot Correos Express",
       repo: "https://github.com/munozherrerodario-alt/chatbot_correosExpress",
       description: "Asistente de IA para Correos Express especializado en el seguimiento de envíos y gestión logística.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"]
+      tags: ["TYPESCRIPT", "HTML", "CSS"],
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop"
     }
   ]
 };
