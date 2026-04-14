@@ -1,35 +1,20 @@
-<!-- README.md -->
 <div align="center">
-  <h1>✨ portfolio_DarioMunoz</h1>
-  <p><em>Código fuente de mi portfolio personal</em></p>
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-<br>
+# Run and deploy your AI Studio app
 
-Hola 👋, soy **Darío Muñoz**.
+This contains everything you need to run your app locally.
 
-Este repositorio alberga el código de mi sitio personal, donde comparto proyectos, experimentos y cosas en las que estoy trabajando, principalmente enfocadas en desarrollo de software e inteligencia artificial.
+View your app in AI Studio: https://ai.studio/apps/9a84e888-4dbc-4cbe-8f25-9260240275a2
 
-<br>
+## Run Locally
 
-<div align="center">
-  <a href="https://github.com/darioomh/portfolio_DarioMunoz">
-    🔗 <strong>Ver este repositorio</strong>
-  </a>
-</div>
+**Prerequisites:**  Node.js
 
-<br>
 
-### 📬 ¿Hablamos?
-
-Si quieres charlar sobre código, colaboración o cualquier otra cosa, escríbeme:
-
-<p align="center">
-  ✉️ <a href="mailto:dariomunozherrero@gmail.com">dariomunozherrero@gmail.com</a>
-</p>
-
-<br>
-
-<div align="center">
-  <sub>👨‍💻 Hecho con código y café • © 2026</sub>
-</div>
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

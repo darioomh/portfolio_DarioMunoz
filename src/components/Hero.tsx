@@ -153,16 +153,19 @@ export function Hero() {
           >
             <a 
               href="#work"
-              className="group relative px-10 py-4 bg-white text-black font-display font-bold text-lg tracking-tight overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+              className="group relative px-10 py-4 bg-white text-black font-display font-bold text-lg tracking-tight overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,242,255,0.4)]"
             >
-              <div className="absolute inset-0 bg-neon-blue translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="relative z-10 group-hover:text-white transition-colors">Ver proyectos</span>
+              <div className="absolute inset-0 bg-neon-blue translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300">Ver proyectos</span>
+              <div className="absolute -inset-1 bg-neon-blue/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <a 
               href="#contact"
-              className="group px-10 py-4 border border-white/10 hover:border-white/40 transition-all font-display font-bold text-lg text-white/60 hover:text-white"
+              className="group relative px-10 py-4 border border-white/10 overflow-hidden font-display font-bold text-lg text-white/60 hover:text-white transition-all hover:border-neon-blue/50"
             >
-              Contactar
+              <div className="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+              <span className="relative z-10">Contactar</span>
+              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-neon-blue group-hover:w-full transition-all duration-500" />
             </a>
           </motion.div>
         </div>
