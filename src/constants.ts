@@ -1,4 +1,4 @@
-export const PROFILE = {
+﻿export const PROFILE = {
   name: "Dario Muñoz",
   role: "Desarrollador de Software | Especialización en Inteligencia Artificial y Deep Learning",
   description: "Desarrollador de aplicaciones multiplataforma con experiencia en desarrollo backend, frontend y análisis de datos. Especializado en Java y tecnologías del ecosistema Android y .NET. Actualmente cursando un Máster en Inteligencia Artificial y Deep Learning, donde aplico técnicas de Machine Learning y procesamiento de datos para construir soluciones reales.",
@@ -38,7 +38,7 @@ export const PROFILE = {
       role: "Desarrollo de aplicaciones",
       period: "Mar 2025 – Jun 2025",
       highlights: [
-        "Desarrollo de aplicaciones web y móviles participando en todas las fases del ciclo de desarrollo.",
+        "Desarrollo de aplicaciones web y móviles participando en todas las fases del ciclo de desarrollo.",   
         "Uso de tecnologías modernas tanto en frontend como en backend."
       ]
     }
@@ -74,7 +74,13 @@ export interface ProjectData {
   image?: string;
 }
 
-export const PROJECTS: { professional: ProjectData[]; vibe: ProjectData[] } = {
+export const PROJECTS: {
+  professional: ProjectData[];
+  vibe: {
+    chatbots: ProjectData[];
+    automation: ProjectData[];
+  }
+} = {
   professional: [
     {
       title: "TFG - API Backend",
@@ -91,34 +97,59 @@ export const PROJECTS: { professional: ProjectData[]; vibe: ProjectData[] } = {
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=450&fit=crop"
     }
   ],
-  vibe: [
-    {
-      title: "Chatbot BBVA",
-      repo: "https://github.com/munozherrerodario-alt/chatbot_BBVA",
-      description: "Asistente inteligente desarrollado para BBVA enfocado en la automatización de consultas financieras y atención al cliente.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"],
-      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&h=450&fit=crop"
-    },
-    {
-      title: "IKEA Assistant",
-      repo: "https://github.com/munozherrerodario-alt/ikea-assistant",
-      description: "Asistente virtual para IKEA que facilita la búsqueda de productos y soporte en la experiencia de compra.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"],
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop"
-    },
-    {
-      title: "Chatbot Telefónica",
-      repo: "https://github.com/munozherrerodario-alt/chatbot_Telefonica",
-      description: "Solución de chatbot para Telefónica diseñada para optimizar la gestión de servicios y soporte técnico.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"],
-      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop"
-    },
-    {
-      title: "Chatbot Correos Express",
-      repo: "https://github.com/munozherrerodario-alt/chatbot_correosExpress",
-      description: "Asistente de IA para Correos Express especializado en el seguimiento de envíos y gestión logística.",
-      tags: ["TYPESCRIPT", "HTML", "CSS"],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop"
-    }
-  ]
+  vibe: {
+    chatbots: [
+      {
+        title: "Chatbot BBVA",
+        repo: "https://github.com/munozherrerodario-alt/chatbot_BBVA",
+        description: "Asistente inteligente desarrollado para BBVA enfocado en la automatización de consultas financieras y atención al cliente.",
+        tags: ["TYPESCRIPT", "HTML", "CSS"],
+        image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&h=450&fit=crop"
+      },
+      {
+        title: "IKEA Assistant",
+        repo: "https://github.com/munozherrerodario-alt/ikea-assistant",
+        description: "Asistente virtual para IKEA que facilita la búsqueda de productos y soporte en la experiencia de compra.",
+        tags: ["TYPESCRIPT", "HTML", "CSS"],
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop"
+      },
+      {
+        title: "Chatbot Telefónica",
+        repo: "https://github.com/munozherrerodario-alt/chatbot_Telefonica",
+        description: "Solución de chatbot para Telefónica diseñada para optimizar la gestión de servicios y soporte técnico.",
+        tags: ["TYPESCRIPT", "HTML", "CSS"],
+        image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=450&fit=crop"
+      },
+      {
+        title: "Chatbot Correos Express",
+        repo: "https://github.com/munozherrerodario-alt/chatbot_correosExpress",
+        description: "Asistente de IA para Correos Express especializado en el seguimiento de envíos y gestión logística.",
+        tags: ["TYPESCRIPT", "HTML", "CSS"],
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop"
+      }
+    ],
+    automation: [
+      {
+        title: "Glovo Architecture Dashboard",
+        repo: "https://github.com/munozherrerodario-alt/glovo-architecture-dashboard",
+        description: "Panel de control para la visualización de la arquitectura y flujos de Glovo.",
+        tags: ["TYPESCRIPT", "DASHBOARD", "ARCHITECTURE"],
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
+      },
+      {
+        title: "Sistema Incidencias SEUR",
+        repo: "https://github.com/munozherrerodario-alt/sistema-incidencias-seur",
+        description: "Sistema automatizado para la gestión y resolución de incidencias en la red logística de SEUR.",
+        tags: ["TYPESCRIPT", "LOGISTICS", "AUTOMATION"],
+        image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800&h=450&fit=crop"
+      },
+      {
+        title: "Automatización Zalando",
+        repo: "https://github.com/munozherrerodario-alt/automatizacion-incidencias-zalando",
+        description: "Herramienta de automatización para el procesamiento de incidencias y devoluciones de Zalando.",
+        tags: ["TYPESCRIPT", "E-COMMERCE", "AUTOMATION"],
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=450&fit=crop"
+      }
+    ]
+  }
 };
